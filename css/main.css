@@ -1,0 +1,51 @@
+* { 
+	border: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box; 
+ }
+
+.hidden { display: none; }
+
+html, body { height: 100vh; max-width: 1140px;} /*% isareti yerine vh koyduk degisen olsmadi. vh means viewportHeight 
+- a dynamic measurement that refers to the visible area (viewport) of a browserwindow*/
+
+body { 
+	font-family: arial, helvetica, sans-serif;
+ 	font-size: 16px; 
+}
+
+main { 
+	display: flex;
+ 	flex-direction: column;
+ 	min-height: 100%; 
+}
+
+/*main icindeki ilk basamak divLERI etkliliyor sadece yani direct desended divleri. yani div altinda 
+bir tane daha div olsaydi onu etkilemezdi.*/
+main > div {  
+	flex: 1;
+	border: thin solid black;
+	padding: 1em;
+ }
+
+ .box > span {
+ 	display: inline-block;
+ 	padding: 4px 12px;
+ 	border-radius: 0.5em;
+ 	background-color: blue;
+ 	color: white;
+ }
+.box:nth-of-type(1)  { background-color: pink; }
+.box:nth-of-type(2)  { background-color: red; }
+.box:nth-of-type(3)  { display: none; }
+.box:nth-of-type(4)  { display: none; }
+
+ @media screen and (min-width: 641px) {
+ 	main { flex-direction: row; }
+.box:nth-of-type(1)  { background-color: blue; }
+.box:nth-of-type(2)  { background-color: purple; }
+.box:nth-of-type(3)  { display: block; background-color: grey; }
+.box:nth-of-type(4)  { display: block; background-color: brown; }
+
+ }
